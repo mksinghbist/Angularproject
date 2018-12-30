@@ -13,7 +13,6 @@ export class EmployeeService {
   readonly baseURL = 'http://localhost:3000/employees';
 
   constructor(private http: HttpClient) { }
-
   postEmployee(emp: Employee) {
     return this.http.post(this.baseURL, emp);
   }
@@ -23,6 +22,7 @@ export class EmployeeService {
   }
 
   putEmployee(emp: Employee) {
+	  console.log(emp.date);
     return this.http.put(this.baseURL + `/${emp._id}`, emp);
   }
 

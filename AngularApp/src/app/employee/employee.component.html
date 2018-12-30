@@ -20,6 +20,25 @@
                   <label>Position :</label>
                 </div>
               </div>
+			 <div class="row">
+         
+     <select name="name_id" [(ngModel)]="model.name_id" #name_id="ngModel" required>
+        <option value="" disabled selected>Select Name</option>
+        <option *ngFor="let name of allnames" [value]="name.name_id">{{name.name}}</option>
+    </select>
+              </div>
+			    <div class="row">
+                <div class="input-field col s12">
+                  <input type="date" name="dobdate" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.dobdate" placeholder="date">
+                  <label>DOB :</label>
+                </div>
+              </div>
+			   <div class="row">
+                <div class="input-field col s12">
+                  <input type="date" name="date" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.date" placeholder="date">
+                  <label>Joining Date :</label>
+                </div>
+              </div>
               <div class="row">
                 <div class="input-field col s12">
                   <input type="text" name="office" #name="ngModel" [(ngModel)]="employeeService.selectedEmployee.office" placeholder="Enter office location">
@@ -46,6 +65,8 @@
                     <tr>
                       <th>Name</th>
                       <th>Position</th>
+					  <th>DOB</th>
+					  <th>Joining Date</th>
                       <th>Office</th>
                       <th></th>
                     </tr>
@@ -53,6 +74,8 @@
                   <tr *ngFor="let emp of employeeService.employees">
                     <td>{{emp.name}}</td>
                     <td>{{emp.position}}</td>
+				      <td>{{emp.dobdate}}</td>
+					  <td>{{emp.date}}</td>
                     <td>{{emp.office}}</td>
                     <td>
                         <a class="action-btn" (click)="onEdit(emp)">

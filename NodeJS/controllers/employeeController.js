@@ -23,9 +23,12 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+	 console.log("i am here "+req.body);
     var emp = new Employee({
         name: req.body.name,
         position: req.body.position,
+		dobdate:req.body.dobdate,
+		date:req.body.date,
         office: req.body.office,
         salary: req.body.salary,
     });
@@ -38,10 +41,12 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
     if (!ObjectId.isValid(req.params.id))
         return res.status(400).send(`No record with given id : ${req.params.id}`);
-
+           console.log(req.body);
     var emp = {
         name: req.body.name,
         position: req.body.position,
+		dobdate:req.body.dobdate,
+		date:req.body.date,
         office: req.body.office,
         salary: req.body.salary,
     };
